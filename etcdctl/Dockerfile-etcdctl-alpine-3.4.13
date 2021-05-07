@@ -1,0 +1,6 @@
+FROM alpine
+
+# used to backup etcd
+
+COPY --from=k8s.gcr.io/etcd:3.4.13-0 /usr/local/bin/etcdctl-3.4.13 /bin/
+RUN mv /bin/etcdctl-3.4.13 /bin/etcdctl
