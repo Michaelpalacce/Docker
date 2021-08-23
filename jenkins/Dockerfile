@@ -2,8 +2,6 @@ FROM jenkins/jenkins:2.307
 
 USER root
 
-RUN apt update && apt install -y python3 ansible
-
 USER jenkins
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 ENV JENKINS_USER admin
