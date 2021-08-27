@@ -1,25 +1,6 @@
-Jenkins image based on https://hub.docker.com/r/jenkins/jenkins.
+Jenkins agent with nodejs made for ARM architectures.
 
-# Notes
-- jenkins:2.307 supports arm processors, from what I can tell, the previous ones do not
-- It has python3 and ansible preinstalled
-
-# Environment Variables
-
+Setup a new builder if you don't have one already: 
+~~~bash
+docker buildx create --use
 ~~~
-JENKINS_USER
-~~~
-The default jenkins username
-Defaults to 'admin'
-
-~~~
-JENKINS_PASS
-~~~
-The default jenkins password
-Defaults to 'admin'
-
-~~~
-JAVA_OPTS
-~~~
-Extra java opts to pass
-Defaults to '-Djenkins.install.runSetupWizard=false'

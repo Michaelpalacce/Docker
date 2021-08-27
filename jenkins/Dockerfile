@@ -1,14 +1,10 @@
-FROM jenkins/jenkins:2.307
+FROM jenkins/inbound-agent:latest-jdk11 as jnlp
 
-USER root
+FROM node:16.7.0-alpine
 
-USER jenkins
-ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
-ENV JENKINS_USER admin
-ENV JENKINS_PASS admin
+RUN apk -U add openjdk8-jre
 
-COPY files/plugins.txt /usr/share/jenkins/ref/
-COPY --chown=jenkins:jenkins files/executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
-COPY files/default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
+COPY --from=jnlp /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-agent
+COPY --from=jnlp /usr/share/jenkins/agent.jar /usr/share/jenkins/agent.jar
 
-RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
+ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
