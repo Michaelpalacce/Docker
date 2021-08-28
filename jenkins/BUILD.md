@@ -1,1 +1,1 @@
-docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t stefangenov/jenkins-agent-node:latest --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t stefangenov/jenkins-agent-node:latest -t stefangenov/jenkins-agent-node:node-16.7-v2 --push .
