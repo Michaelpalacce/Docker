@@ -1,3 +1,5 @@
-docker build -f Dockerfile -t stefangenov/homer:latest -t stefangenov/homer:21.07.1 . \
-  && docker push stefangenov/homer:latest \
-  && docker push stefangenov/homer:21.07.1
+docker buildx build --platform linux/amd64,linux/arm64 \
+-f Dockerfile \
+-t stefangenov/homer:latest \
+-t stefangenov/homer:21.07.1 \
+--push .
