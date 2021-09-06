@@ -17,7 +17,6 @@ docker buildx build --platform linux/amd64,linux/arm64 \
 -f Dockerfile-12.22.5 \
 --push .
 ~~~
-
 ~~~bash
 docker buildx build --platform linux/amd64,linux/arm64 \
 -t stefangenov/jenkins-agent:docker \
