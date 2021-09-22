@@ -1,4 +1,4 @@
-################### START COPY FROM https://github.com/Lissy93/dashy/blob/master/Dockerfile ############################
+################### Based on https://github.com/Lissy93/dashy/blob/master/Dockerfile ############################
 FROM node:lts-alpine3.14
 
 # Define some ENV Vars
@@ -10,6 +10,9 @@ ENV PORT=80 \
 WORKDIR ${DIRECTORY}
 
 RUN apk add git && git clone https://github.com/Lissy93/dashy.git .
+
+RUN rm -rf /app/public/item-icons && GIT_SSL_NO_VERIFY=true git clone https://github.com/NX211/homer-icons.git /app/public/item-icons
+COPY extraimages/* /app/public/item-icons
 
 # Install project dependencies
 RUN yarn
@@ -25,10 +28,3 @@ CMD [ "yarn", "build-and-start"]
 
 # Run simple healthchecks every 5 mins, to check the Dashy's everythings great
 HEALTHCHECK --interval=5m --timeout=2s --start-period=30s CMD yarn health-check
-################### END COPY FROM https://github.com/Lissy93/dashy/blob/master/Dockerfile ############################
-
-
-
-RUN rm -rf /app/dist/item-icons && GIT_SSL_NO_VERIFY=true git clone https://github.com/NX211/homer-icons.git /app/dist/item-icons
-
-COPY extraimages/* /app/dist/item-icons
