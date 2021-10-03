@@ -17,4 +17,6 @@ RUN apt update \
     && apt update \
     && apt install -y docker-ce docker-ce-cli containerd.io
 
+RUN apt install -y openjdk-8-jdk
+
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
