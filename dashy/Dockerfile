@@ -11,7 +11,7 @@ WORKDIR ${DIRECTORY}
 
 RUN apk add git && git clone https://github.com/Lissy93/dashy.git .
 
-RUN rm -rf /app/public/item-icons && GIT_SSL_NO_VERIFY=true git clone https://github.com/NX211/homer-icons.git /app/public/item-icons
+RUN rm -rf /app/public/item-icons && GIT_SSL_NO_VERIFY=true git clone https://github.com/WalkxCode/dashboard-icons.git /app/public/item-icons
 COPY extraimages/* /app/public/item-icons
 
 # Install project dependencies
