@@ -1,6 +1,6 @@
 FROM jenkins/inbound-agent:latest-jdk11 as jnlp
 
-FROM node:14.17.5-alpine
+FROM node:erbium-alpine
 
 RUN apk -U add openjdk8-jre git openssh
 
