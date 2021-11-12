@@ -107,7 +107,10 @@ if [ -z "$NO_DOCKER_IMAGE" ]; then
   # Pull the image first to be sure we're using the latest available
   docker pull $(grep "FROM " $HOST_OS | cut -d ' ' -f 2)
 
-  docker buildx build --platform linux/amd64,linux/arm64 -f Dockerfile -t stefangenov/libre-office-online:latest --push .
+  docker buildx build --platform linux/amd64,linux/arm64 -f Dockerfile -t stefangenov/libre-office-online:latest \
+  --cpu-quota="400000" \
+  --memory=16g \
+  --push .
 else
   echo "Skipping docker image build"
 fi;

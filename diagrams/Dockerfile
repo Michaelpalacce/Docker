@@ -9,9 +9,11 @@ RUN apk update --no-cache && \
         git
 
 RUN cd /tmp && \
-    git clone --depth 1 --branch $TAG_VERSION https://github.com/jgraph/drawio.git && \
-    cd /tmp/drawio/etc/build/ && \
-    ant war
+    git clone --depth 1 --branch $TAG_VERSION https://github.com/jgraph/drawio.git
+
+WORKDIR /tmp/drawio/etc/build/
+
+RUN ant war
 
 FROM tomcat:9-jre8-alpine
 
