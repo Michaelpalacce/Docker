@@ -1,6 +1,12 @@
 ~~~bash
 docker buildx build --platform linux/amd64,linux/arm64 \
 -t stefangenov/jenkins-agent:node-latest \
+-t stefangenov/jenkins-agent:node-17.x \
+-f Dockerfile-17.x \
+--push .
+~~~
+~~~bash
+docker buildx build --platform linux/amd64,linux/arm64 \
 -t stefangenov/jenkins-agent:node-gallium \
 -f Dockerfile-gallium \
 --push .
