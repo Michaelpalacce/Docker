@@ -1,11 +1,14 @@
-FROM openjdk:8-alpine AS build
+FROM openjdk:11-jdk-slim AS build
 
-LABEL FROM=https://github.com/jgraph/docker-drawio/blob/dev/alpine/Dockerfile
+LABEL FROM=https://github.com/jgraph/docker-drawio/blob/dev/debian/Dockerfile
 ARG TAG_VERSION
 
-RUN apk update --no-cache && \
-    apk add --no-cache \
-        apache-ant \
+RUN apt-get update -y && \
+# this solves some weird issue with openjdk-11-jdk-headless
+# https://github.com/nextcloud/docker/issues/380
+    mkdir -p /usr/share/man/man1 && \
+    apt-get install -y \
+        ant \
         git
 
 RUN cd /tmp && \
@@ -15,15 +18,18 @@ WORKDIR /tmp/drawio/etc/build/
 
 RUN ant war
 
-FROM tomcat:9-jre8-alpine
+FROM tomcat:9-jre11-slim
 
 LABEL maintainer="JGraph Ltd"
 
-RUN apk update --no-cache && \
-    apk add --no-cache \
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends \
         certbot \
         curl \
-        xmlstarlet
+        xmlstarlet && \
+    apt-get autoremove -y --purge && \
+    apt-get clean && \
+    rm -r /var/lib/apt/lists/*
 
 COPY --from=build /tmp/drawio/build/draw.war /tmp
 
