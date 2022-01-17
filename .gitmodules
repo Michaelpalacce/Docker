@@ -1,3 +1,6 @@
 [submodule "dashy"]
 	path = dashy
 	url = https://github.com/Michaelpalacce/docker-dashy.git
+[submodule "wallabag"]
+	path = wallabag
+	url = https://github.com/Michaelpalacce/docker-wallabag.git
