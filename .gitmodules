@@ -4,3 +4,6 @@
 [submodule "wallabag"]
 	path = wallabag
 	url = https://github.com/Michaelpalacce/docker-wallabag.git
+[submodule "diagrams"]
+	path = diagrams
+	url = https://github.com/Michaelpalacce/docker-diagrams.git
