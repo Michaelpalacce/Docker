@@ -7,3 +7,6 @@
 [submodule "diagrams"]
 	path = diagrams
 	url = https://github.com/Michaelpalacce/docker-diagrams.git
+[submodule "tooljet"]
+	path = tooljet
+	url = https://github.com/Michaelpalacce/tooljet.git
