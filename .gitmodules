@@ -13,6 +13,3 @@
 [submodule "shiori"]
 	path = shiori
 	url = https://github.com/Michaelpalacce/docker-shiori.git
-[submodule "focalboard"]
-	path = focalboard
-	url = https://github.com/Michaelpalacce/docker-focalboard.git
