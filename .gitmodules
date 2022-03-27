@@ -13,3 +13,6 @@
 [submodule "shiori"]
 	path = shiori
 	url = https://github.com/Michaelpalacce/docker-shiori.git
+[submodule "dailynotes"]
+	path = dailynotes
+	url = https://github.com/Michaelpalacce/docker-dailynotes.git
