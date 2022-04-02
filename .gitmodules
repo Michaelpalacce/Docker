@@ -16,3 +16,6 @@
 [submodule "dailynotes"]
 	path = dailynotes
 	url = https://github.com/Michaelpalacce/docker-dailynotes.git
+[submodule "docker-vaultwarden-backup"]
+	path = docker-vaultwarden-backup
+	url = https://github.com/Michaelpalacce/docker-vaultwarden-backup.git
