@@ -19,3 +19,6 @@
 [submodule "docker-vaultwarden-backup"]
 	path = docker-vaultwarden-backup
 	url = https://github.com/Michaelpalacce/docker-vaultwarden-backup.git
+[submodule "docker-kubectl"]
+	path = kubectl
+	url = https://github.com/Michaelpalacce/docker-kubectl.git
