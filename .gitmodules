@@ -22,3 +22,6 @@
 [submodule "docker-kubectl"]
 	path = kubectl
 	url = https://github.com/Michaelpalacce/docker-kubectl.git
+[submodule "docker-focalboard"]
+	path = focalboard
+	url = https://github.com/Michaelpalacce/docker-focalboard.git
